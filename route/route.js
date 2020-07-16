@@ -45,6 +45,13 @@ route.delete("/deletePerson/:_id", (req, res) =>{
 
 })
 
+//get all===================================================================
+route.get("/allPerson",(req,res)=> {
+    PersonModel.find().then((doc)=>{
+     console.log(doc);
+     res.json(doc);
 
+	})
+})
 
 module.exports = route;
