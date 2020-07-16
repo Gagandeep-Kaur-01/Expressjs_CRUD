@@ -19,5 +19,14 @@ route.post("/addPerson",(req, res) =>{
 	})
 })
 
+//update person=======================================================================
+route.put("/updatePerson",(res, req)=>{
+     var query = {_id:req.body._id};
+     PersonModel.update(query,req.body,(doc)=>{
+             res.json({msg:"Person updated successfully"}).status(201);
+	 }).catch((error)=>{
+      res.json({msg:"Cant update person"}).status(204);
+	 })
+})
 
 module.exports = route;
