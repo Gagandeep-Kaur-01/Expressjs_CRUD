@@ -29,4 +29,22 @@ route.put("/updatePerson",(res, req)=>{
 	 })
 })
 
+//delete Person========================================================================
+route.delete("/deletePerson/:_id", (req, res) =>{
+    console.log(req.params._id);
+    var query = {_id:req.params._id};
+
+    PersonModel.deleteOne(query,(error) =>{
+            if(error){
+                console.log("Can't delete");
+                res.json({msg:"Can't delete "});
+			}
+
+            res.json({msg:"Person deleted"});
+	})
+
+})
+
+
+
 module.exports = route;
